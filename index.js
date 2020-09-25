@@ -1,9 +1,3 @@
-// Arrays to keep track of each task's state
-
-const taskTitles = [];
-const taskComplete = [];
-const taskDesc = [];
-
 // Create a new task by adding to the arrays
 // A new task will be created as incomplete
 const newTask = (title, desc) => {
@@ -16,15 +10,15 @@ const newTask = (title, desc) => {
 }
 
 // Mark a task as complete by setting the task's status in the `taskComplete` array to `true`
-function completeTask(taskIndex) {
-  taskComplete[taskIndex] = true;
+function completeTask(taskId) {
+  taskId['complete'] = true;
 }
 
 // Print the state of a task to the console in a nice readable way
-function logTaskState(taskIndex) {
-  const title = taskTitles[taskIndex];
-  const desc = taskDesc[taskIndex];
-  const complete = taskComplete[taskIndex];
+function logTaskState(taskId) {
+  const title = taskId['title'];
+  const desc = taskId['description'];
+  const complete = taskId['complete'];
   console.log(`${title} has${complete ? " " : " not "}been completed`);
   console.log(`${title} Description: ${desc}`);
 }
@@ -36,6 +30,6 @@ const task2 = newTask("Do Laundry", "😨"); // task 1
 const tasks = [task1, task2];
 console.log(tasks);
 
-// logTaskState(0); // Clean Cat Litter has not been completed
-// completeTask(0);
-// logTaskState(0); // Clean Cat Litter has been completed
+logTaskState(task1); // Clean Cat Litter has not been completed
+completeTask(task1);
+logTaskState(task1); // Clean Cat Litter has been completed
