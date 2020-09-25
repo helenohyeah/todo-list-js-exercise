@@ -1,4 +1,4 @@
-// Create a new task by adding to the arrays
+// Create a new task by adding a new object
 // A new task will be created as incomplete
 const newTask = (title, desc) => {
   task = {
@@ -6,30 +6,18 @@ const newTask = (title, desc) => {
     description: desc,
     complete: false,
 
+    // marks the task as complete
     completeTask: function() {
       this['complete'] = true;
     },
 
+    // prints out whether the task is completed
     logTaskState: function() {
       console.log(`${this['title']} has${this['complete'] ? " " : " not "}been completed`);
     }
   };
   return task;
 }
-
-// // Mark a task as complete by setting the task's status in the `taskComplete` array to `true`
-// function completeTask(taskId) {
-//   taskId['complete'] = true;
-// }
-
-// // Print the state of a task to the console in a nice readable way
-// function logTaskState(taskId) {
-//   const title = taskId['title'];
-//   const desc = taskId['description'];
-//   const complete = taskId['complete'];
-//   console.log(`${title} has${complete ? " " : " not "}been completed`);
-//   console.log(`${title} Description: ${desc}`);
-// }
 
 // DRIVER CODE BELOW
 
